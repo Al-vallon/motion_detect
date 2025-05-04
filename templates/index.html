@@ -3,13 +3,57 @@
 <head>
   <title>Motion Detection</title>
   <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .video-container {
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    video, img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    #status {
+      margin-top: 15px;
+      font-size: 1.2em;
+    }
+    canvas {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <h1>Motion Detection</h1>
-  <video id="video" autoplay playsinline></video>
-  <img id="motionFrame" style="max-width: 100%; border: 1px solid #ccc;" />
-  <p id="status">Status: <span id="motion" style="font-weight: bold; color: green;">Aucun</span></p>
-  <canvas id="canvas" style="display:none;"></canvas>
+  
+  <div class="container">
+    <div class="video-container">
+      <h2>Camera Feed</h2>
+      <video id="video" autoplay playsinline></video>
+    </div>
+    
+    <div class="video-container">
+      <h2>Motion Detection</h2>
+      <img id="motionFrame" src="" alt="Motion detection" />
+      <p id="status">Status: <span id="motion">No motion</span></p>
+    </div>
+  </div>
+  
+  <canvas id="canvas"></canvas>
 
   <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
