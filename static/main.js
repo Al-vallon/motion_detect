@@ -5,17 +5,18 @@ const statusText = document.getElementById('motion');
 
 const socket = io("http://localhost:5000");
 
-socket.onmessage = (event) => {
-    const data = JSON.parse(event.data);
-    status.textContent = data.motion ? "Mouvement détecté !" : "Aucun";
-    status.style.color = data.motion ? "red" : "green";
+socket.on("message", (data) => {
+    console.log(data.motion, 'data received from server');
+    statusText.textContent = data.motion ? "Mouvement détecté !" : "Aucun";
+    statusText.style.color = data.motion ? "red" : "green";
 
     if (data.frame) {
-        const uint8Arr = new Uint8Array(Object.values(data.frame));
+        const uint8Arr = new Uint8Array(data.frame);
         const blob = new Blob([uint8Arr], { type: 'image/jpeg' });
         document.getElementById('motionFrame').src = URL.createObjectURL(blob);
     }
-};
+});
+
 
 navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
     video.srcObject = stream;

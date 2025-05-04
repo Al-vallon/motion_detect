@@ -8,7 +8,7 @@
   <h1>Motion Detection</h1>
   <video id="video" autoplay playsinline></video>
   <img id="motionFrame" style="max-width: 100%; border: 1px solid #ccc;" />
-  <p id="status">Status: <span style="font-weight: bold;" id="motion">Aucun</span></p>
+  <p id="status">Status: <span id="motion" style="font-weight: bold; color: green;">Aucun</span></p>
   <canvas id="canvas" style="display:none;"></canvas>
 
   <script src="{{ url_for('static', filename='main.js') }}"></script>
