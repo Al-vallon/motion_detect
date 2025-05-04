@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Motion Detection</title>
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+  <h1>Motion Detection</h1>
+  <video id="video" autoplay playsinline></video>
+  <img id="motionFrame" style="max-width: 100%; border: 1px solid #ccc;" />
+  <p id="status">Status: <span style="font-weight: bold;" id="motion">Aucun</span></p>
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

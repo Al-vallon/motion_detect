@@ -1,0 +1,11 @@
+
+services:
+  motion_detect:
+    build: .
+    container_name: motion_detect
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    restart: unless-stopped
+
