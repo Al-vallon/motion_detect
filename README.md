@@ -2,7 +2,6 @@
 
 A real-time motion detection system that works in your browser. This application uses computer vision techniques to detect motion from your webcam and displays the results in a web interface.
 
-[![Motion Detection Demo](https://img.youtube.com/vi/RRCx25SMPOY/0.jpg)](https://www.youtube.com/watch?v=RRCx25SMPOY)
 
 
 ---
